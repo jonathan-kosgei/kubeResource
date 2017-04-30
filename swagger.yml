@@ -7,6 +7,8 @@ info:
   contact:
     name: Jonathan Kosgei
     email: jonathan@saharacluster.com
+description: Find more info here
+url: https://swagger.io
 schemes:
   - https
 host: kubernetes.default.svc
@@ -44,6 +46,9 @@ paths:
           description: A list of Resources
           schema:
             type: object
+    externalDocs: 
+      description: Complete example on watching a third party resource
+      url: http://github.com/jonathan-kosgei/kubeResource/watch/README.md
   /apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}:
     get:
       security:
