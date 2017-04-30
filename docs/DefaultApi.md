@@ -1,4 +1,4 @@
-# swagger_client.DefaultApi
+# kube_resource.DefaultApi
 
 All URIs are relative to *https://kubernetes.default.svc*
 
@@ -19,17 +19,17 @@ Returns a specific Resource in a namespace
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import kube_resource
+from kube_resource.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: Bearer
-swagger_client.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+kube_resource.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['Authorization'] = 'Bearer'
+# kube_resource.configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = kube_resource.DefaultApi()
 namespace = 'namespace_example' # str | The Resource's namespace
 name = 'name_example' # str | The Resource's name
 fqdn = 'fqdn_example' # str | The Third party Resource fqdn
@@ -78,17 +78,17 @@ Returns a list of Resources
 ```python
 from __future__ import print_statement
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import kube_resource
+from kube_resource.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: Bearer
-swagger_client.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+kube_resource.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['Authorization'] = 'Bearer'
+# kube_resource.configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi()
+api_instance = kube_resource.DefaultApi()
 fqdn = 'fqdn_example' # str | The Third party Resource fqdn
 resource = 'resource_example' # str | The Resource type
 watch = true # bool | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. (optional)
