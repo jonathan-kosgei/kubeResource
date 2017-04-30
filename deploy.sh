@@ -6,5 +6,5 @@ generate \
 -l python \
 -c /local/python.json \
 -o /local \
---git-repo-id kubeRepo \
+--git-repo-id kubeResource \
 --git-user-id jonathan-kosgei
