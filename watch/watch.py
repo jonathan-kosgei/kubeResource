@@ -15,7 +15,7 @@
 import json
 import pydoc
 
-from kube_resource import client
+import kube_resource as client
 
 PYDOC_RETURN_LABEL = ":return:"
 
