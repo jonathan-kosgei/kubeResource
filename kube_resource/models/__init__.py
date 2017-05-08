@@ -14,3 +14,5 @@
 from __future__ import absolute_import
 
 # import models into model package
+from .v1_delete_options import V1DeleteOptions
+from .v1_preconditions import V1Preconditions

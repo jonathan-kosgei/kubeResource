@@ -40,6 +40,116 @@ class DefaultApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def apis_fqdn_v1_namespaces_namespace_resource_name_delete(self, body, **kwargs):
+        """
+        Deletes a specific Resource
+        Deletes the specified Resource in the specified namespace
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.apis_fqdn_v1_namespaces_namespace_resource_name_delete(body, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param V1DeleteOptions body: (required)
+        :param int grace_period_seconds: The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+        :param bool orphan_dependents: Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+        :param str propagation_policy: Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.apis_fqdn_v1_namespaces_namespace_resource_name_delete_with_http_info(body, **kwargs)
+        else:
+            (data) = self.apis_fqdn_v1_namespaces_namespace_resource_name_delete_with_http_info(body, **kwargs)
+            return data
+
+    def apis_fqdn_v1_namespaces_namespace_resource_name_delete_with_http_info(self, body, **kwargs):
+        """
+        Deletes a specific Resource
+        Deletes the specified Resource in the specified namespace
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.apis_fqdn_v1_namespaces_namespace_resource_name_delete_with_http_info(body, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param V1DeleteOptions body: (required)
+        :param int grace_period_seconds: The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
+        :param bool orphan_dependents: Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+        :param str propagation_policy: Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy.
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'grace_period_seconds', 'orphan_dependents', 'propagation_policy']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method apis_fqdn_v1_namespaces_namespace_resource_name_delete" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params) or (params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `apis_fqdn_v1_namespaces_namespace_resource_name_delete`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = {}
+        if 'grace_period_seconds' in params:
+            query_params['gracePeriodSeconds'] = params['grace_period_seconds']
+        if 'orphan_dependents' in params:
+            query_params['orphanDependents'] = params['orphan_dependents']
+        if 'propagation_policy' in params:
+            query_params['propagationPolicy'] = params['propagation_policy']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # Authentication setting
+        auth_settings = ['Bearer']
+
+        return self.api_client.call_api('/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def apis_fqdn_v1_namespaces_namespace_resource_name_get(self, namespace, name, fqdn, resource, **kwargs):
         """
         Gets a specific Resource
@@ -145,6 +255,125 @@ class DefaultApi(object):
         auth_settings = ['Bearer']
 
         return self.api_client.call_api('/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def apis_fqdn_v1_namespaces_namespace_resource_name_put(self, namespace, fqdn, resource, body, **kwargs):
+        """
+        Replace a Resource
+        Replaces the specified third party resource of the type specified
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.apis_fqdn_v1_namespaces_namespace_resource_name_put(namespace, fqdn, resource, body, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str namespace: The Resource's namespace (required)
+        :param str fqdn: The Third party Resource fqdn (required)
+        :param str resource: The Resource type (required)
+        :param object body: The JSON schema of the Resource to create. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.apis_fqdn_v1_namespaces_namespace_resource_name_put_with_http_info(namespace, fqdn, resource, body, **kwargs)
+        else:
+            (data) = self.apis_fqdn_v1_namespaces_namespace_resource_name_put_with_http_info(namespace, fqdn, resource, body, **kwargs)
+            return data
+
+    def apis_fqdn_v1_namespaces_namespace_resource_name_put_with_http_info(self, namespace, fqdn, resource, body, **kwargs):
+        """
+        Replace a Resource
+        Replaces the specified third party resource of the type specified
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.apis_fqdn_v1_namespaces_namespace_resource_name_put_with_http_info(namespace, fqdn, resource, body, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str namespace: The Resource's namespace (required)
+        :param str fqdn: The Third party Resource fqdn (required)
+        :param str resource: The Resource type (required)
+        :param object body: The JSON schema of the Resource to create. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['namespace', 'fqdn', 'resource', 'body']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method apis_fqdn_v1_namespaces_namespace_resource_name_put" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'namespace' is set
+        if ('namespace' not in params) or (params['namespace'] is None):
+            raise ValueError("Missing the required parameter `namespace` when calling `apis_fqdn_v1_namespaces_namespace_resource_name_put`")
+        # verify the required parameter 'fqdn' is set
+        if ('fqdn' not in params) or (params['fqdn'] is None):
+            raise ValueError("Missing the required parameter `fqdn` when calling `apis_fqdn_v1_namespaces_namespace_resource_name_put`")
+        # verify the required parameter 'resource' is set
+        if ('resource' not in params) or (params['resource'] is None):
+            raise ValueError("Missing the required parameter `resource` when calling `apis_fqdn_v1_namespaces_namespace_resource_name_put`")
+        # verify the required parameter 'body' is set
+        if ('body' not in params) or (params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `apis_fqdn_v1_namespaces_namespace_resource_name_put`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'namespace' in params:
+            path_params['namespace'] = params['namespace']
+        if 'fqdn' in params:
+            path_params['fqdn'] = params['fqdn']
+        if 'resource' in params:
+            path_params['resource'] = params['resource']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # Authentication setting
+        auth_settings = ['Bearer']
+
+        return self.api_client.call_api('/apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,

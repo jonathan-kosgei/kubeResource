@@ -57,17 +57,17 @@ kube_resource.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # kube_resource.configuration.api_key_prefix['Authorization'] = 'Bearer'
 # create an instance of the API class
 api_instance = kube_resource.DefaultApi()
-namespace = 'namespace_example' # str | The Resource's namespace
-name = 'name_example' # str | The Resource's name
-fqdn = 'fqdn_example' # str | The Third party Resource fqdn
-resource = 'resource_example' # str | The Resource type
+body = kube_resource.V1DeleteOptions() # V1DeleteOptions | 
+grace_period_seconds = 56 # int | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
+orphan_dependents = true # bool | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
+propagation_policy = 'propagation_policy_example' # str | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
 
 try:
-    # Gets a specific Resource
-    api_response = api_instance.apis_fqdn_v1_namespaces_namespace_resource_name_get(namespace, name, fqdn, resource)
+    # Deletes a specific Resource
+    api_response = api_instance.apis_fqdn_v1_namespaces_namespace_resource_name_delete(body, grace_period_seconds=grace_period_seconds, orphan_dependents=orphan_dependents, propagation_policy=propagation_policy)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->apis_fqdn_v1_namespaces_namespace_resource_name_get: %s\n" % e)
+    print("Exception when calling DefaultApi->apis_fqdn_v1_namespaces_namespace_resource_name_delete: %s\n" % e)
 
 ```
 
@@ -77,13 +77,17 @@ All URIs are relative to *https://kubernetes.default.svc*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**apis_fqdn_v1_namespaces_namespace_resource_name_delete**](docs/DefaultApi.md#apis_fqdn_v1_namespaces_namespace_resource_name_delete) | **DELETE** /apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name} | Deletes a specific Resource
 *DefaultApi* | [**apis_fqdn_v1_namespaces_namespace_resource_name_get**](docs/DefaultApi.md#apis_fqdn_v1_namespaces_namespace_resource_name_get) | **GET** /apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name} | Gets a specific Resource
+*DefaultApi* | [**apis_fqdn_v1_namespaces_namespace_resource_name_put**](docs/DefaultApi.md#apis_fqdn_v1_namespaces_namespace_resource_name_put) | **PUT** /apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name} | Replace a Resource
 *DefaultApi* | [**apis_fqdn_v1_namespaces_namespace_resource_post**](docs/DefaultApi.md#apis_fqdn_v1_namespaces_namespace_resource_post) | **POST** /apis/{fqdn}/v1/namespaces/{namespace}/{resource} | Create a Resource
 *DefaultApi* | [**apis_fqdn_v1_resource_get**](docs/DefaultApi.md#apis_fqdn_v1_resource_get) | **GET** /apis/{fqdn}/v1/{resource} | Gets Resources
 
 
 ## Documentation For Models
 
+ - [V1DeleteOptions](docs/V1DeleteOptions.md)
+ - [V1Preconditions](docs/V1Preconditions.md)
 
 
 ## Documentation For Authorization
