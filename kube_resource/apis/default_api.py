@@ -284,7 +284,7 @@ class DefaultApi(object):
             for asynchronous request. (optional)
         :param str fqdn: The Third party Resource fqdn (required)
         :param str resource: The Resource type (required)
-        :param object resource2: The Resource to create.
+        :param object body: The JSON schema of the Resource to create.
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -312,13 +312,13 @@ class DefaultApi(object):
             for asynchronous request. (optional)
         :param str fqdn: The Third party Resource fqdn (required)
         :param str resource: The Resource type (required)
-        :param object resource2: The Resource to create.
+        :param object body: The JSON schema of the Resource to create.
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['fqdn', 'resource', 'resource2']
+        all_params = ['fqdn', 'resource', 'body']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -357,8 +357,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'resource2' in params:
-            body_params = params['resource2']
+        if 'body' in params:
+            body_params = params['body']
         # Authentication setting
         auth_settings = ['Bearer']
 
