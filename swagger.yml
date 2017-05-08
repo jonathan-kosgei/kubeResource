@@ -44,12 +44,18 @@ paths:
           description: A list of Resources
           schema:
             type: object
+  /apis/{fqdn}/v1/namespaces/{namespace}/{resource}:
     post:
       security:
         - Bearer: []
       summary: Create a Resource
       description: Creates a third party resource of the type specified
       parameters:
+        - name: namespace
+          in: path
+          required: true
+          description: The Resource's namespace
+          type: string
         - name: fqdn
           in: path
           required: true

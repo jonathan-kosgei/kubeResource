@@ -159,6 +159,125 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def apis_fqdn_v1_namespaces_namespace_resource_post(self, namespace, fqdn, resource, body, **kwargs):
+        """
+        Create a Resource
+        Creates a third party resource of the type specified
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.apis_fqdn_v1_namespaces_namespace_resource_post(namespace, fqdn, resource, body, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str namespace: The Resource's namespace (required)
+        :param str fqdn: The Third party Resource fqdn (required)
+        :param str resource: The Resource type (required)
+        :param object body: The JSON schema of the Resource to create. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.apis_fqdn_v1_namespaces_namespace_resource_post_with_http_info(namespace, fqdn, resource, body, **kwargs)
+        else:
+            (data) = self.apis_fqdn_v1_namespaces_namespace_resource_post_with_http_info(namespace, fqdn, resource, body, **kwargs)
+            return data
+
+    def apis_fqdn_v1_namespaces_namespace_resource_post_with_http_info(self, namespace, fqdn, resource, body, **kwargs):
+        """
+        Create a Resource
+        Creates a third party resource of the type specified
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.apis_fqdn_v1_namespaces_namespace_resource_post_with_http_info(namespace, fqdn, resource, body, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str namespace: The Resource's namespace (required)
+        :param str fqdn: The Third party Resource fqdn (required)
+        :param str resource: The Resource type (required)
+        :param object body: The JSON schema of the Resource to create. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['namespace', 'fqdn', 'resource', 'body']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method apis_fqdn_v1_namespaces_namespace_resource_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'namespace' is set
+        if ('namespace' not in params) or (params['namespace'] is None):
+            raise ValueError("Missing the required parameter `namespace` when calling `apis_fqdn_v1_namespaces_namespace_resource_post`")
+        # verify the required parameter 'fqdn' is set
+        if ('fqdn' not in params) or (params['fqdn'] is None):
+            raise ValueError("Missing the required parameter `fqdn` when calling `apis_fqdn_v1_namespaces_namespace_resource_post`")
+        # verify the required parameter 'resource' is set
+        if ('resource' not in params) or (params['resource'] is None):
+            raise ValueError("Missing the required parameter `resource` when calling `apis_fqdn_v1_namespaces_namespace_resource_post`")
+        # verify the required parameter 'body' is set
+        if ('body' not in params) or (params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `apis_fqdn_v1_namespaces_namespace_resource_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'namespace' in params:
+            path_params['namespace'] = params['namespace']
+        if 'fqdn' in params:
+            path_params['fqdn'] = params['fqdn']
+        if 'resource' in params:
+            path_params['resource'] = params['resource']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # Authentication setting
+        auth_settings = ['Bearer']
+
+        return self.api_client.call_api('/apis/{fqdn}/v1/namespaces/{namespace}/{resource}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def apis_fqdn_v1_resource_get(self, fqdn, resource, **kwargs):
         """
         Gets Resources
@@ -254,118 +373,6 @@ class DefaultApi(object):
         auth_settings = ['Bearer']
 
         return self.api_client.call_api('/apis/{fqdn}/v1/{resource}', 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='object',
-                                        auth_settings=auth_settings,
-                                        callback=params.get('callback'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
-    def apis_fqdn_v1_resource_post(self, fqdn, resource, body, **kwargs):
-        """
-        Create a Resource
-        Creates a third party resource of the type specified
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.apis_fqdn_v1_resource_post(fqdn, resource, body, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str fqdn: The Third party Resource fqdn (required)
-        :param str resource: The Resource type (required)
-        :param object body: The JSON schema of the Resource to create. (required)
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
-            return self.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, body, **kwargs)
-        else:
-            (data) = self.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, body, **kwargs)
-            return data
-
-    def apis_fqdn_v1_resource_post_with_http_info(self, fqdn, resource, body, **kwargs):
-        """
-        Create a Resource
-        Creates a third party resource of the type specified
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, body, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str fqdn: The Third party Resource fqdn (required)
-        :param str resource: The Resource type (required)
-        :param object body: The JSON schema of the Resource to create. (required)
-        :return: object
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['fqdn', 'resource', 'body']
-        all_params.append('callback')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method apis_fqdn_v1_resource_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'fqdn' is set
-        if ('fqdn' not in params) or (params['fqdn'] is None):
-            raise ValueError("Missing the required parameter `fqdn` when calling `apis_fqdn_v1_resource_post`")
-        # verify the required parameter 'resource' is set
-        if ('resource' not in params) or (params['resource'] is None):
-            raise ValueError("Missing the required parameter `resource` when calling `apis_fqdn_v1_resource_post`")
-        # verify the required parameter 'body' is set
-        if ('body' not in params) or (params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `apis_fqdn_v1_resource_post`")
-
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'fqdn' in params:
-            path_params['fqdn'] = params['fqdn']
-        if 'resource' in params:
-            path_params['resource'] = params['resource']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # Authentication setting
-        auth_settings = ['Bearer']
-
-        return self.api_client.call_api('/apis/{fqdn}/v1/{resource}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,
