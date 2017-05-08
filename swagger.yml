@@ -7,8 +7,6 @@ info:
   contact:
     name: Jonathan Kosgei
     email: jonathan@saharacluster.com
-description: Find more info here
-url: https://swagger.io
 schemes:
   - https
 host: kubernetes.default.svc
@@ -46,9 +44,27 @@ paths:
           description: A list of Resources
           schema:
             type: object
-    externalDocs: 
-      description: Complete example on watching a third party resource
-      url: http://github.com/jonathan-kosgei/kubeResource/watch/README.md
+    post:
+      security:
+        - Bearer: []
+      summary: Create a Resource
+      description: Creates a third party resource of the type specified
+      parameters:
+        - name: fqdn
+          in: path
+          required: true
+          description: The Third party Resource fqdn
+          type: string
+        - name: resource
+          in: path
+          required: true
+          description: The Resource type
+          type: string
+      responses:
+        201:
+          description: A list of Resources
+          schema:
+            type: object
   /apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name}:
     get:
       security:

@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**apis_fqdn_v1_namespaces_namespace_resource_name_get**](docs/DefaultApi.md#apis_fqdn_v1_namespaces_namespace_resource_name_get) | **GET** /apis/{fqdn}/v1/namespaces/{namespace}/{resource}/{name} | Gets a specific Resource
 *DefaultApi* | [**apis_fqdn_v1_resource_get**](docs/DefaultApi.md#apis_fqdn_v1_resource_get) | **GET** /apis/{fqdn}/v1/{resource} | Gets Resources
+*DefaultApi* | [**apis_fqdn_v1_resource_post**](docs/DefaultApi.md#apis_fqdn_v1_resource_post) | **POST** /apis/{fqdn}/v1/{resource} | Create a Resource
 
 
 ## Documentation For Models
