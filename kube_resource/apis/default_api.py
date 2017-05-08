@@ -268,7 +268,7 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def apis_fqdn_v1_resource_post(self, fqdn, resource, **kwargs):
+    def apis_fqdn_v1_resource_post(self, fqdn, resource, body, **kwargs):
         """
         Create a Resource
         Creates a third party resource of the type specified
@@ -278,25 +278,25 @@ class DefaultApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.apis_fqdn_v1_resource_post(fqdn, resource, callback=callback_function)
+        >>> thread = api.apis_fqdn_v1_resource_post(fqdn, resource, body, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str fqdn: The Third party Resource fqdn (required)
         :param str resource: The Resource type (required)
-        :param object body: The JSON schema of the Resource to create.
+        :param object body: The JSON schema of the Resource to create. (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, **kwargs)
+            return self.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, body, **kwargs)
         else:
-            (data) = self.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, **kwargs)
+            (data) = self.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, body, **kwargs)
             return data
 
-    def apis_fqdn_v1_resource_post_with_http_info(self, fqdn, resource, **kwargs):
+    def apis_fqdn_v1_resource_post_with_http_info(self, fqdn, resource, body, **kwargs):
         """
         Create a Resource
         Creates a third party resource of the type specified
@@ -306,13 +306,13 @@ class DefaultApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, callback=callback_function)
+        >>> thread = api.apis_fqdn_v1_resource_post_with_http_info(fqdn, resource, body, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str fqdn: The Third party Resource fqdn (required)
         :param str resource: The Resource type (required)
-        :param object body: The JSON schema of the Resource to create.
+        :param object body: The JSON schema of the Resource to create. (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
@@ -339,6 +339,9 @@ class DefaultApi(object):
         # verify the required parameter 'resource' is set
         if ('resource' not in params) or (params['resource'] is None):
             raise ValueError("Missing the required parameter `resource` when calling `apis_fqdn_v1_resource_post`")
+        # verify the required parameter 'body' is set
+        if ('body' not in params) or (params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `apis_fqdn_v1_resource_post`")
 
 
         collection_formats = {}

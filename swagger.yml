@@ -62,6 +62,7 @@ paths:
           type: string
         - name: body
           in: body
+          required: true
           description: The JSON schema of the Resource to create.
           schema:
             type: object
