@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apis_fqdn_v1_resource_post**
-> object apis_fqdn_v1_resource_post(fqdn, resource)
+> object apis_fqdn_v1_resource_post(fqdn, resource, resource2=resource2)
 
 Create a Resource
 
@@ -149,10 +149,11 @@ kube_resource.configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = kube_resource.DefaultApi()
 fqdn = 'fqdn_example' # str | The Third party Resource fqdn
 resource = 'resource_example' # str | The Resource type
+resource2 = NULL # object | The Resource to create. (optional)
 
 try: 
     # Create a Resource
-    api_response = api_instance.apis_fqdn_v1_resource_post(fqdn, resource)
+    api_response = api_instance.apis_fqdn_v1_resource_post(fqdn, resource, resource2=resource2)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->apis_fqdn_v1_resource_post: %s\n" % e)
@@ -164,6 +165,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fqdn** | **str**| The Third party Resource fqdn | 
  **resource** | **str**| The Resource type | 
+ **resource2** | **object**| The Resource to create. | [optional] 
 
 ### Return type
 

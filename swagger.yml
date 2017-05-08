@@ -60,6 +60,11 @@ paths:
           required: true
           description: The Resource type
           type: string
+        - name: resource
+          in: body
+          description: The Resource to create.
+          schema:
+            type: object
       responses:
         201:
           description: A list of Resources
