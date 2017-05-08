@@ -60,9 +60,9 @@ paths:
           required: true
           description: The Resource type
           type: string
-        - name: resource
+        - name: body
           in: body
-          description: The Resource to create.
+          description: The JSON schema of the Resource to create.
           schema:
             type: object
       responses:
